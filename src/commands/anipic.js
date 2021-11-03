@@ -12,7 +12,7 @@ module.exports = {
         .setColor(client.THEME)
         .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }));
 
-        async function process(type){
+        function fetch(type){
             axios.get(`https://api.waifu.pics/sfw/${type}`)
             .then(response => {
                 const picData = response['data'];
@@ -25,11 +25,11 @@ module.exports = {
 
         const number = Math.floor(Math.random()*listLength);
 
-        if(!picQuery){ process(picList[number]); }
+        if(!picQuery){ fetch(picList[number]); }
         else {
             for(var i=0; i<=listLength; i++){ if(picList[i] == picQuery){ var category = picList[i]; } }
             if(!category) return message.reply('Invalid category!');
-            process(category);
+            fetch(category);
         }
         return;
     }
