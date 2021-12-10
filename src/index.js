@@ -11,7 +11,7 @@ const intents = [
 	Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS
 ];
 const client = new Client({ intents: intents });
-const { CREATOR, TOKEN, PREFIX, THEME, APIKEYS } = require('../config/config.json')
+const { CREATOR, TOKEN, PREFIX, THEME, APIKEYS } = require('../config/config.json');
 
 client.commands = new Collection();
 
